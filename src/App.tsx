@@ -1,5 +1,6 @@
 import "./App.css";
 import { useMovies } from "./custom-hooks/queries";
+import AppRouter from "./routes";
 
 function App() {
   const { isPending, data, error } = useMovies({ page: "1" });
@@ -9,7 +10,7 @@ function App() {
   if (data) console.log("movies: ", data);
   return (
     <>
-      <div>Movie Browser app</div>
+      <AppRouter />
     </>
   );
 }

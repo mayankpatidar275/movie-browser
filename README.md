@@ -81,6 +81,7 @@ Ensure you have the following installed:
 - **Vite**: Chosen for its speed and simplicity.
 - **React**: For small and frontend only project.
 - **TypeScript**: Ensures type safety, reducing bugs and enhancing maintainability.
+- **React Router**: To create routes for movies, tv shows etc.
 
 ### **2. Styling**
 
