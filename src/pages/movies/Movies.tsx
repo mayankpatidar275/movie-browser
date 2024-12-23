@@ -1,14 +1,20 @@
 import React from "react";
+import MoviesList from "../../components/moviesPage/MoviesList";
+import Carousel from "../../components/moviesPage/Carousel";
+import Search from "../../components/moviesPage/Search";
+import FiltersConfig from "../../components/moviesPage/FilterControls";
 
 function Movies() {
   return (
     <div>
       <section>
-        <div>Carousel</div>
-        <div>Search</div>
+        <Carousel />
+        <Search />
       </section>
-      <section>Filters configurations</section>
-      <section>Movies list</section>
+      <section>
+        <FiltersConfig />
+      </section>
+      <MoviesList />
     </div>
   );
 }

@@ -4,8 +4,9 @@ import { fetchMovies } from "../services/api/movies";
 
 export function useMovies(params: QueryParams) {
   return useQuery({
-    queryKey: ["movies"],
+    queryKey: ["movies", params],
     queryFn: () => fetchMovies(params),
-    enabled: true,
+    enabled: !!params, // Ensure params are available before fetching
+    staleTime: 5 * 60 * 1000, // Optional: Cache data for 5 minutes
   });
 }
