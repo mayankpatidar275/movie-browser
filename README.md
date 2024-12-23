@@ -1,22 +1,24 @@
 # **Movie Browser**
 
 ## **Table of Contents**
+
 - [Introduction](#introduction)
 - [Getting Started](#getting-started)
 - [Required Features](#required-features)
 - [Development Decisions](#development-decisions)
-<!-- - [Additional Features](#additional-features) -->
-<!-- - [Possible Improvements](#possible-improvements) -->
-
+  <!-- - [Additional Features](#additional-features) -->
+  <!-- - [Possible Improvements](#possible-improvements) -->
 
 ---
 
 ## **Introduction**
+
 This project is a movie-browsing web application that allows users to search for movies with advanced filtering options and save their favorite movies. The application is responsive and accessible.
 
 ---
 
 ## **Required Features**
+
 - Responsive and Mobile first UI.
 - Display a list of movies on the homepage, including the movie title, poster image, and release year..
 - Search movies by title.
@@ -29,24 +31,30 @@ This project is a movie-browsing web application that allows users to search for
 - Documentation explaining how to run the application, your design decisions, and any additional features implemented. Also, mention any possible improvements in your implementation.
 
 ---
+
 <!-- ## **Additional Features**
 
 
 --- -->
 
 ## **Getting Started**
+
 ### **Prerequisites**
+
 Ensure you have the following installed:
+
 - Node.js (>= 16.x)
 - npm (>= 8.x) or yarn (>= 1.22.x)
 
 ### **Installation and running**
+
 1. Clone the repository:
    ```bash
    git clone https://github.com/mayankpatidar275/movie-browser.git
    cd movie-browser
    ```
 2. Install dependencies:
+
    ```bash
    npm install
    # or
@@ -54,6 +62,7 @@ Ensure you have the following installed:
    ```
 
 3. Start the development server:
+
    ```bash
    npm run dev
    # or
@@ -66,17 +75,26 @@ Ensure you have the following installed:
 ---
 
 ## **Development Decisions**
+
 ### **1. Framework and Tooling**
+
 - **Vite**: Chosen for its speed and simplicity.
 - **React**: For small and frontend only project.
 - **TypeScript**: Ensures type safety, reducing bugs and enhancing maintainability.
 
 ### **2. Styling**
+
 - **Tailwind CSS**: For utility-first approach and design consistency.
 
 ### **3. Public API**
-- **Tailwind CSS**: IMDb API or TMDB API
 
+- TMDb offers a developer-friendly interface with a free tier and is often seen as better documented and actively maintained for wider development use.
+
+### **3. Data fetching**
+
+- **Tanstack Query**: React/Tanstack Query would be the better option to handle things like caching, pagination, and background refetching automatically, making it easier to manage large data sets efficiently.
+- **Fetch**: It is a native solution, with minimal dependencies and potential performance gains.
+- Using the authentication API key in header.
 
 ---
 
