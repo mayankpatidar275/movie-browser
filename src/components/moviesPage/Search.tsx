@@ -35,12 +35,11 @@ const Search: React.FC = () => {
 
   // Clear input
   const clearInput = () => {
-    setInputValue(""); // Reset input value
-    setSearchQueryParams({ query: "" }); // Reset search query
+    setInputValue("");
+    setSearchQueryParams({ query: "" });
     debouncedSearchTerm(""); // Ensure no stale debounce calls
   };
 
-  // Query movies with React Query
   const {
     data: movies,
     isLoading,
@@ -76,7 +75,9 @@ const Search: React.FC = () => {
           <Cross />
         </button>
       </form>
-      <div className="mt-4 h-[60vh] overflow-y-auto">
+      <div
+        className={`${!inputValue && "hidden"} mt-4 h-[60vh] overflow-y-auto`}
+      >
         {isLoading && <div className="text-center mt-4">Loading...</div>}
         {isError && (
           <div className="text-center mt-4 text-red-500">
