@@ -4,7 +4,7 @@ import GenreBtn from "./GenreBtn";
 import RangeSlider from "./RangeSlider";
 import ResetBtn from "./ResetBtn";
 import { useFilter } from "../../custom-hooks/useFilter";
-import { SET_FILTER } from "../../constants/actions";
+import { RESET_FILTERS, SET_FILTER } from "../../constants/actions";
 import Loader from "../shared/ui/Loader";
 
 function FilterControls() {
@@ -112,7 +112,12 @@ function FilterControls() {
           />
         </div>
       </div>
-      <div className="w-full flex justify-end p-4">
+      <div
+        onClick={() =>
+          dispatch({ actionType: RESET_FILTERS, key: "", value: "" })
+        }
+        className="w-full flex justify-end p-4"
+      >
         <ResetBtn name="Reset" />
       </div>
     </div>
