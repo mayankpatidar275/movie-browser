@@ -31,6 +31,14 @@ function HomeLayout({ children }: { children: React.ReactNode }) {
     }
   }, [darkMode]);
 
+  useEffect(() => {
+    if (open) {
+      document.body.classList.add("overflow-y-hidden");
+    } else {
+      document.body.classList.remove("overflow-y-hidden");
+    }
+  }, [open]);
+
   return (
     <>
       {/* Navbar */}
@@ -47,7 +55,7 @@ function HomeLayout({ children }: { children: React.ReactNode }) {
                         <NavLink
                           key={index}
                           to={item.href}
-                          className="text-gray-900 dark:text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-lg font-medium"
+                          className="text-secondary dark:text-primary hover:bg-tertiary hover:text-primary px-3 py-2 rounded-md text-lg font-medium"
                         >
                           <span>{item.title}</span>
                         </NavLink>
@@ -77,7 +85,7 @@ function HomeLayout({ children }: { children: React.ReactNode }) {
         <div
           className={`${
             !open && "hidden"
-          } flex flex-col absolute h-[100vh] w-[100vw] inset-y-0 bg-primary dark:bg-secondary`}
+          } flex flex-col absolute h-[100vh] w-[100vw] inset-y-0 bg-primary dark:bg-secondary z-20`}
         >
           <div className="flex justify-between w-full h-16">
             <div className="flex items-center justify-center sm:items-stretch sm:justify-start">
