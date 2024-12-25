@@ -1,10 +1,10 @@
 export interface QueryParams {
   page: string;
-  with_genres: string;
-  primary_release_date_gte: string;
-  primary_release_date_lte: string;
-  vote_average_gte: string;
-  vote_average_lte: string;
+  with_genres: string[];
+  "primary_release_date.gte": string;
+  "primary_release_date.lte": string;
+  "vote_average.gte": string;
+  "vote_average.lte": string;
   include_adult: boolean;
 }
 

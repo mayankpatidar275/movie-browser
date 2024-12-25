@@ -8,10 +8,12 @@ function MoviesList() {
   const { state } = useFilter();
   const { data, isLoading, error } = useMovies(state);
 
+  console.log(data);
+
   if (isLoading)
     return (
       <div className="h-screen flex items-center justify-center bg-gray-100">
-        <Loader size={40} className="text-blue-500" />
+        <Loader size={40} />
       </div>
     );
   if (error)
