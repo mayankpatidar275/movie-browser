@@ -6,12 +6,10 @@ import Sun from "../Icons/Sun";
 import Moon from "../Icons/Moon";
 
 function HomeLayout({ children }: { children: React.ReactNode }) {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(
+    localStorage.getItem("mode") === "dark"
+  );
   const [open, setOpen] = useState(false);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
 
   useEffect(() => {
     if (localStorage.getItem("mode") === "dark") {
@@ -64,7 +62,7 @@ function HomeLayout({ children }: { children: React.ReactNode }) {
                   <MobileMenuBtn setOpen={setOpen} open={open} />
                 </div>
                 <button
-                  onClick={toggleDarkMode}
+                  onClick={() => setDarkMode((prev) => !prev)}
                   className="hidden sm:flex absolute right-0 text-gray-900 dark:text-white px-3 py-2 rounded-full text-lg font-medium"
                 >
                   {darkMode ? <Sun /> : <Moon />}
@@ -108,7 +106,7 @@ function HomeLayout({ children }: { children: React.ReactNode }) {
             </div>
             {/* Dark mode toggle */}
             <button
-              onClick={toggleDarkMode}
+              onClick={() => setDarkMode((prev) => !prev)}
               className="flex absolute bottom-2 left-0 text-gray-900 dark:text-white px-3 py-2 rounded-full text-lg font-medium"
             >
               {darkMode ? <Sun /> : <Moon />}
