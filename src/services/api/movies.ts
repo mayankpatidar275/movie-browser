@@ -6,8 +6,11 @@ const BASE_URL = import.meta.env.VITE_REACT_APP_BASE_URL;
 const READ_ACCESS_TOKEN = import.meta.env.VITE_REACT_APP_API_READ_ACCESS_TOKEN;
 
 // Fetch movies
-export const fetchMovies = async (params: QueryParams) => {
-  const url = getURL(`${BASE_URL}/3/discover/movie`, params);
+export const fetchMovies = async (params: QueryParams, defaultParams) => {
+  const url = getURL(`${BASE_URL}/3/discover/movie`, {
+    ...params,
+    page: defaultParams.pageParam,
+  });
   const options = {
     headers: {
       accept: "application/json",

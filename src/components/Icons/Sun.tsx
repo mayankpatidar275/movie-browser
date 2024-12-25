@@ -8,8 +8,8 @@ function Sun() {
       <line
         id="ray"
         stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
         x1="15"
         y1="1"
         x2="15"
