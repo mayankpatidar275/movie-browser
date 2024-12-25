@@ -7,13 +7,9 @@ import FiltersConfig from "../../components/moviesPage/FilterControls";
 function Movies() {
   return (
     <div>
-      <section>
-        <Carousel />
-        <Search />
-      </section>
-      <section>
-        <FiltersConfig />
-      </section>
+      <Carousel />
+      <Search />
+      <FiltersConfig />
       <MoviesList />
     </div>
   );

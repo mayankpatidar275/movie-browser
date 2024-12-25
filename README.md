@@ -6,7 +6,7 @@
 - [Getting Started](#getting-started)
 - [Required Features](#required-features)
 - [Development Decisions](#development-decisions)
-  <!-- - [Additional Features](#additional-features) -->
+- [Additional Features](#additional-features)
   <!-- - [Possible Improvements](#possible-improvements) -->
 
 ---
@@ -32,10 +32,11 @@ This project is a movie-browsing web application that allows users to search for
 
 ---
 
-<!-- ## **Additional Features**
+## **Additional Features**
 
+- Dark mode
 
---- -->
+---
 
 ## **Getting Started**
 
@@ -96,6 +97,10 @@ Ensure you have the following installed:
 - **Tanstack Query**: React/Tanstack Query would be the better option to handle things like caching, pagination, and background refetching automatically, making it easier to manage large data sets efficiently.
 - **Fetch**: It is a native solution, with minimal dependencies and potential performance gains.
 - Using the authentication API key in header.
+
+### **3. Accessibility**
+
+- **Tool to check**: WAVE Web Accessibility Evaluation Tools and Accessible Rich Internet Applications (ARIA) extension for online accessibility checking.
 
 ---
 
