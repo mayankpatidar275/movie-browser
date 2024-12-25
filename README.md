@@ -37,6 +37,7 @@ This project is a movie-browsing web application that allows users to search for
 - Dark mode
 - Reset Genre selection
 - Multiple Genre selection
+- Error page
 
 ---
 

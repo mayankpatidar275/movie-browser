@@ -8,12 +8,7 @@ const RangeSlider = ({
 }: {
   min: number;
   max: number;
-  onChange: (
-    value: React.SetStateAction<{
-      min: number;
-      max: number;
-    }>
-  ) => void;
+  onChange: (value: { min: number; max: number }) => void;
   label: string;
 }) => {
   const [minVal, setMinVal] = useState(min);
