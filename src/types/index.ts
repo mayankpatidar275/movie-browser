@@ -1,5 +1,11 @@
 export interface QueryParams {
-  [key: string]: string;
+  page: string;
+  with_genres: string;
+  primary_release_date_gte: string;
+  primary_release_date_lte: string;
+  vote_average_gte: string;
+  vote_average_lte: string;
+  include_adult: boolean;
 }
 
 export interface ReducerAction {

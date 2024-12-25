@@ -3,11 +3,14 @@ import { useGenres } from "../../custom-hooks/queries";
 import GenreBtn from "./GenreBtn";
 import RangeSlider from "./RangeSlider";
 import ResetBtn from "./ResetBtn";
+import { useFilter } from "../../custom-hooks/useFilter";
+import { SET_FILTER } from "../../constants/actions";
 
 function FilterControls() {
   const { data, error, isPending } = useGenres({});
-  console.log("gen: ", data);
-  // const [totalPages, setTotalPages] = useState(3);
+
+  const { state, dispatch } = useFilter();
+
   const [rangeValues, setRangeValues] = useState({ min: 0, max: 100 });
 
   const handleRangeChange = (values) => {
@@ -22,7 +25,22 @@ function FilterControls() {
       <div className="w-full flex justify-center flex-wrap gap-2 p-4">
         {/* <div className="text-primary mr-auto">Prev</div> */}
         {data.genres.map((item, index) => {
-          return <GenreBtn key={item.id} item={item} />;
+          return (
+            <div
+              onClick={(e) => {
+                e.preventDefault();
+
+                dispatch({
+                  actionType: SET_FILTER,
+                  key: "with_genres",
+                  value: item.id,
+                });
+              }}
+              key={item.id}
+            >
+              <GenreBtn item={item} />
+            </div>
+          );
         })}
         {/* <div className="text-primary ml-auto">Next</div> */}
       </div>

@@ -7,4 +7,5 @@ export const initialFilterState: QueryParams = {
   primary_release_date_lte: "",
   vote_average_gte: "",
   vote_average_lte: "",
+  include_adult: false,
 };
