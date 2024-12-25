@@ -48,7 +48,7 @@ const Search: React.FC = () => {
   } = useSearchedMovies(searchQueryParams);
 
   return (
-    <div className="top-1/4 left-1/2 -translate-x-1/2 absolute w-[80vw] md:w-[60vw] z-10">
+    <div className="top-1/4 left-1/2 -translate-x-1/2 absolute w-[80vw] md:w-[60vw] lg:w-[50vw] z-10">
       <form
         className="group relative"
         onSubmit={(e) => {

@@ -35,6 +35,8 @@ This project is a movie-browsing web application that allows users to search for
 ## **Additional Features**
 
 - Dark mode
+- Reset Genre selection
+- Multiple Genre selection
 
 ---
 
@@ -101,6 +103,16 @@ Ensure you have the following installed:
 ### **3. Accessibility**
 
 - **Tool to check**: WAVE Web Accessibility Evaluation Tools and Accessible Rich Internet Applications (ARIA) extension for online accessibility checking.
+
+### **3. Optimization**
+
+- webp format for images.
+- Debouncing in movie searching.
+- Caching using Tanstack React Query.
+
+### **3. State Management**
+
+- Context API with useReducer.
 
 ---
 

@@ -60,7 +60,7 @@ const RangeSlider = ({
 
   return (
     <div className="flex items-center justify-center flex-col space-y-5 w-full">
-      <div className="px-4 flex items-center justify-between w-3/4 gap-x-5">
+      <div className="px-4 flex items-center justify-between w-[350px] gap-x-5">
         <p className="text-xl font-semibold">{label}</p>
         <div className="flex gap-x-1">
           <p className="text-xl font-semibold">{minVal}</p>
@@ -69,7 +69,7 @@ const RangeSlider = ({
         </div>
       </div>
 
-      <div className="multi-slide-input-container w-[400px] bg-red-300">
+      <div className="multi-slide-input-container w-[350px] bg-red-300">
         <input
           type="range"
           min={min}
@@ -79,7 +79,7 @@ const RangeSlider = ({
             const value = Math.min(Number(event.target.value), maxVal - 1);
             setMinVal(value);
           }}
-          className="thumb thumb-left w-[400px]"
+          className="thumb thumb-left w-[350px]"
           style={{
             zIndex: minVal > max - 100 || minVal === maxVal ? 5 : undefined,
           }}
@@ -94,7 +94,7 @@ const RangeSlider = ({
             const value = Math.max(Number(event.target.value), minVal + 1);
             setMaxVal(value);
           }}
-          className="thumb thumb-right w-[400px]"
+          className="thumb thumb-right w-[350px]"
           style={{
             zIndex: minVal > max - 100 || minVal === maxVal ? 4 : undefined,
           }}
