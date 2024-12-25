@@ -4,6 +4,7 @@ import { useSearchedMovies } from "../../custom-hooks/queries";
 import { MovieItem, SearchQueryParams } from "../../types";
 import Cross from "../Icons/Cross";
 import SearchIcon from "../Icons/Search";
+import LoaderInvert from "../shared/ui/LoaderInvert";
 
 const Search: React.FC = () => {
   const [inputValue, setInputValue] = useState<string>(""); // Separate state for input
@@ -78,7 +79,11 @@ const Search: React.FC = () => {
       <div
         className={`${!inputValue && "hidden"} mt-4 h-[60vh] overflow-y-auto`}
       >
-        {isLoading && <div className="text-center mt-4">Loading...</div>}
+        {isLoading && (
+          <div className="flex text-primary mt-6 justify-center ">
+            <LoaderInvert size={40} />
+          </div>
+        )}
         {isError && (
           <div className="text-center mt-4 text-red-500">
             Something went wrong!

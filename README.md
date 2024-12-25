@@ -100,9 +100,11 @@ Ensure you have the following installed:
 - **Fetch**: It is a native solution, with minimal dependencies and potential performance gains.
 - Using the authentication API key in header.
 
-### **3. Accessibility**
+### **3. Accessibility and SEO**
 
 - **Tool to check**: WAVE Web Accessibility Evaluation Tools and Accessible Rich Internet Applications (ARIA) extension for online accessibility checking.
+- SVG are better for SEO.
+- Use aria-label
 
 ### **3. Optimization**
 

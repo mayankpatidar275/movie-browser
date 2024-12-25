@@ -1,6 +1,7 @@
 import { FC, Suspense, lazy } from "react";
 import { Navigate, Outlet, useRoutes } from "react-router-dom";
 import Error from "../pages/error/Error.tsx";
+import Loader from "../components/shared/ui/Loader.tsx";
 
 const HomeLayout = lazy(() => import("../components/layout/HomeLayout"));
 const Movie = lazy(() => import("../pages/movies/Movies.tsx"));
@@ -11,7 +12,13 @@ const AppRouter: FC = () => {
     {
       path: "/",
       element: (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense
+          fallback={
+            <div className="h-screen flex mt-6 text-primary items-center justify-center ">
+              <Loader size={40} />
+            </div>
+          }
+        >
           <HomeLayout>
             <Outlet />
           </HomeLayout>
