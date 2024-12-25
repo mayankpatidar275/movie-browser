@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { RESET_FILTERS, SET_FILTER } from "../../constants/actions";
 import { useGenres } from "../../custom-hooks/queries";
+import { useFilter } from "../../custom-hooks/useFilter";
+import Loader from "../shared/ui/Loader";
 import GenreBtn from "./GenreBtn";
 import RangeSlider from "./RangeSlider";
 import ResetBtn from "./ResetBtn";
-import { useFilter } from "../../custom-hooks/useFilter";
-import { RESET_FILTERS, SET_FILTER } from "../../constants/actions";
-import Loader from "../shared/ui/Loader";
 
 function FilterControls() {
   const { data, error, isPending } = useGenres({});

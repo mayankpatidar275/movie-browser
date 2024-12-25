@@ -1,5 +1,3 @@
-import React from "react";
-
 interface GenreBtnProps {
   item: { id: number; name: string };
   className?: string;

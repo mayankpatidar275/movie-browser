@@ -1,9 +1,9 @@
-import React, { useCallback, useMemo, useRef } from "react";
+import { useCallback, useMemo, useRef } from "react";
 import { useMovies } from "../../custom-hooks/queries";
 import { useFilter } from "../../custom-hooks/useFilter";
-import MovieCard from "./MovieCard";
-import Loader from "../shared/ui/Loader";
 import { MovieItem } from "../../types";
+import Loader from "../shared/ui/Loader";
+import MovieCard from "./MovieCard";
 
 function MoviesList() {
   const { state } = useFilter();

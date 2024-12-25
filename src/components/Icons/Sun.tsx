@@ -1,5 +1,3 @@
-import React from "react";
-
 function Sun() {
   return (
     <svg width="30" height="30">

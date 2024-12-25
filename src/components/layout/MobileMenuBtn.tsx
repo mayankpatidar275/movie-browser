@@ -1,6 +1,5 @@
-import React from "react";
-import Open from "../Icons/Open";
 import Close from "../Icons/Close";
+import Open from "../Icons/Open";
 
 function MobileMenuBtn({
   setOpen,

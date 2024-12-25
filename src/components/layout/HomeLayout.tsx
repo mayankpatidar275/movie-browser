@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import MobileMenuBtn from "./MobileMenuBtn";
-import { navItems } from "../../constants/navItems";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import Sun from "../Icons/Sun";
+import { navItems } from "../../constants/navItems";
 import Moon from "../Icons/Moon";
+import Sun from "../Icons/Sun";
+import MobileMenuBtn from "./MobileMenuBtn";
 
 function HomeLayout({ children }: { children: React.ReactNode }) {
   const [darkMode, setDarkMode] = useState(

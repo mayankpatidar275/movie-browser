@@ -1,4 +1,3 @@
-import React from "react";
 import MovieImg from "../../assets/movies/movie-img.webp";
 
 function Carousel() {

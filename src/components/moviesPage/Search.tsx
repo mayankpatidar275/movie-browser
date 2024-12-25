@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useCallback } from "react";
 import { debounce } from "lodash";
-import SearchIcon from "../Icons/Search";
-import Cross from "../Icons/Cross";
+import React, { useCallback, useEffect, useState } from "react";
 import { useSearchedMovies } from "../../custom-hooks/queries";
 import { MovieItem, SearchQueryParams } from "../../types";
+import Cross from "../Icons/Cross";
+import SearchIcon from "../Icons/Search";
 
 const Search: React.FC = () => {
   const [inputValue, setInputValue] = useState<string>(""); // Separate state for input
