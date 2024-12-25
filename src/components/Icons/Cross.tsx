@@ -6,7 +6,7 @@ function Cross() {
       width="20"
       height="20"
       fill="currentColor"
-      className="absolute right-3 top-1/2 -mt-2.5 text-slate-400 hover:text-blue-500 cursor-pointer"
+      className="absolute right-3 top-1/2 -mt-2.5 text-slate-400  cursor-pointer"
       aria-hidden="true"
     >
       <path

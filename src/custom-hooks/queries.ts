@@ -1,6 +1,10 @@
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
-import { QueryParams } from "../types";
-import { fetchGenres, fetchMovies } from "../services/api/movies";
+import { QueryParams, SearchQueryParams } from "../types";
+import {
+  fetchGenres,
+  fetchMovies,
+  fetchSearchedMovies,
+} from "../services/api/movies";
 
 export function useMovies(params: QueryParams) {
   return useInfiniteQuery({
@@ -14,6 +18,15 @@ export function useMovies(params: QueryParams) {
     },
     enabled: !!params, // Ensure params are available before fetching
     staleTime: 5 * 60 * 1000, // Optional: Cache data for 5 minutes
+  });
+}
+
+export function useSearchedMovies(params: SearchQueryParams) {
+  return useQuery({
+    queryKey: ["searchedMovies", params],
+    queryFn: () => fetchSearchedMovies(params),
+    enabled: params.query.length > 0,
+    staleTime: 5 * 60 * 1000,
   });
 }
 

@@ -6,7 +6,7 @@ function SearchIcon() {
       width="20"
       height="20"
       fill="currentColor"
-      className="absolute left-3 top-1/2 -mt-2.5 text-slate-400 pointer-events-none group-focus-within:text-blue-500"
+      className="absolute left-3 top-1/2 -mt-2.5 text-slate-400 pointer-events-none "
       aria-hidden="true"
     >
       <path

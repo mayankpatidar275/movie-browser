@@ -8,6 +8,10 @@ export interface QueryParams {
   include_adult: boolean;
 }
 
+export interface SearchQueryParams {
+  query: string;
+}
+
 export interface ReducerAction {
   actionType: string;
   key: string;

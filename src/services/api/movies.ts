@@ -1,4 +1,4 @@
-import { QueryParams } from "../../types";
+import { QueryParams, SearchQueryParams } from "../../types";
 import { getURL } from "../../utils/helpers";
 import { get } from "../apiMethods";
 
@@ -11,6 +11,24 @@ export const fetchMovies = async (params: QueryParams, defaultParams) => {
     ...params,
     page: defaultParams.pageParam,
   });
+  const options = {
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${READ_ACCESS_TOKEN}`,
+    },
+  };
+  try {
+    const response = await get(url, options);
+    return response;
+  } catch (error) {
+    console.error("Error fetching movies:", error);
+    throw error;
+  }
+};
+
+// Fetch movies
+export const fetchSearchedMovies = async (params: SearchQueryParams) => {
+  const url = getURL(`${BASE_URL}/3/search/movie`, params);
   const options = {
     headers: {
       accept: "application/json",
