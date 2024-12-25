@@ -61,7 +61,7 @@ function MovieCard({ movie }: MovieCardProps) {
             } hover:text-red-500`}
             aria-label="Add to favorites"
           >
-            <Heart filled={isFavorite ? 1 : 0} size={20} />
+            <Heart fill={isFavorite ? "1" : ""} size={20} />
           </button>
         </div>
       </div>
