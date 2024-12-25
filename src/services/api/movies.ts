@@ -22,3 +22,21 @@ export const fetchMovies = async (params: QueryParams) => {
     throw error;
   }
 };
+
+// Fetch movie genres
+export const fetchGenres = async (params: QueryParams) => {
+  const url = getURL(`${BASE_URL}/genre/movie/list`, params);
+  const options = {
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${READ_ACCESS_TOKEN}`,
+    },
+  };
+  try {
+    const response = await get(url, options);
+    return response;
+  } catch (error) {
+    console.error("Error fetching movie genres:", error);
+    throw error;
+  }
+};
