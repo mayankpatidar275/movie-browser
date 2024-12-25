@@ -1,6 +1,6 @@
 export interface QueryParams {
   page: string;
-  with_genres: string[];
+  with_genres: string;
   "primary_release_date.gte": string;
   "primary_release_date.lte": string;
   "vote_average.gte": string;

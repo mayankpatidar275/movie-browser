@@ -58,15 +58,38 @@ function FilterControls() {
               onClick={(e) => {
                 e.preventDefault();
 
-                dispatch({
-                  actionType: SET_FILTER,
-                  key: "with_genres",
-                  value: item.id,
-                });
+                // Note: I want movies which has both the selected genres (AND). Use | for OR.
+                const currentGenres = state.with_genres.length
+                  ? state.with_genres.split(",")
+                  : [];
+                console.log("curr: ", currentGenres);
+
+                // if already selected
+                if (currentGenres.includes(item.id.toString())) {
+                  const newGenres = currentGenres.filter(
+                    (i) => i != item.id.toString()
+                  );
+                  dispatch({
+                    actionType: SET_FILTER,
+                    key: "with_genres",
+                    value: newGenres.join(","),
+                  });
+                } else {
+                  currentGenres.push(item.id.toString());
+                  // remove "," at start
+                  dispatch({
+                    actionType: SET_FILTER,
+                    key: "with_genres",
+                    value: currentGenres.join(","),
+                  });
+                }
               }}
               key={item.id}
             >
-              <GenreBtn item={item} />
+              <GenreBtn
+                item={item}
+                isSelected={state.with_genres.includes(item.id.toString())}
+              />
             </div>
           );
         })}
