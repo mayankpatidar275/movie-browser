@@ -7,7 +7,7 @@ const READ_ACCESS_TOKEN = import.meta.env.VITE_REACT_APP_API_READ_ACCESS_TOKEN;
 
 // Fetch movies
 export const fetchMovies = async (params: QueryParams) => {
-  const url = getURL(`${BASE_URL}/discover/movie`, params);
+  const url = getURL(`${BASE_URL}/3/discover/movie`, params);
   const options = {
     headers: {
       accept: "application/json",
@@ -25,7 +25,7 @@ export const fetchMovies = async (params: QueryParams) => {
 
 // Fetch movie genres
 export const fetchGenres = async (params: QueryParams) => {
-  const url = getURL(`${BASE_URL}/genre/movie/list`, params);
+  const url = getURL(`${BASE_URL}/3/genre/movie/list`, params);
   const options = {
     headers: {
       accept: "application/json",
