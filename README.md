@@ -105,7 +105,7 @@ Ensure you have the following installed:
 
 - **Tool to check**: WAVE Web Accessibility Evaluation Tools and Accessible Rich Internet Applications (ARIA) extension for online accessibility checking.
 - SVG are better for SEO.
-- Use aria-label
+- Use aria-label and proper html semantics
 
 ### **3. Optimization**
 
