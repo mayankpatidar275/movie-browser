@@ -5,8 +5,8 @@
 - [Introduction](#introduction)
 - [Getting Started](#getting-started)
 - [Required Features](#required-features)
-- [Development Decisions](#development-decisions)
 - [Additional Features](#additional-features)
+- [Development Decisions](#development-decisions)
   <!-- - [Possible Improvements](#possible-improvements) -->
 
 ---
@@ -14,30 +14,6 @@
 ## **Introduction**
 
 This project is a movie-browsing web application that allows users to search for movies with advanced filtering options and save their favorite movies. The application is responsive and accessible.
-
----
-
-## **Required Features**
-
-- Responsive and Mobile first UI.
-- Display a list of movies on the homepage, including the movie title, poster image, and release year..
-- Search movies by title.
-- Search should update the list of movies as user types.
-- Infinite scrolling (prefered not to use third-party solution).
-- Advanced filtering options for movies, such as filtering by genre, release year range, and rating range. Filters should update the list of movies dynamically. [optional]
-- Allow users to save their favorite movies. Favorite movies should be stored locally (e.g., using browser storage). [optional]
-- Ensure the application is SEO-friendly and accessible to users with disabilities by following accessibility best practices.
-- Clean and well-structured code following best practices
-- Documentation explaining how to run the application, your design decisions, and any additional features implemented. Also, mention any possible improvements in your implementation.
-
----
-
-## **Additional Features**
-
-- Dark mode
-- Reset Genre selection
-- Multiple Genre selection
-- Error page
 
 ---
 
@@ -75,6 +51,30 @@ Ensure you have the following installed:
 
 4. Open the application in your browser:
    Navigate to `http://localhost:5173`.
+
+---
+
+## **Required Features**
+
+- Responsive and Mobile first UI.
+- Display a list of movies on the homepage, including the movie title, poster image, and release year..
+- Search movies by title.
+- Search should update the list of movies as user types.
+- Infinite scrolling (prefered not to use third-party solution).
+- Advanced filtering options for movies, such as filtering by genre, release year range, and rating range. Filters should update the list of movies dynamically. [optional]
+- Allow users to save their favorite movies. Favorite movies should be stored locally (e.g., using browser storage). [optional]
+- Ensure the application is SEO-friendly and accessible to users with disabilities by following accessibility best practices.
+- Clean and well-structured code following best practices
+- Documentation explaining how to run the application, your design decisions, and any additional features implemented. Also, mention any possible improvements in your implementation.
+
+---
+
+## **Additional Features**
+
+- Dark mode
+- Reset Genre selection
+- Multiple Genre selection
+- Error page
 
 ---
 
@@ -119,6 +119,12 @@ Ensure you have the following installed:
 
 ---
 
-<!-- ## **Possible Improvements** -->
+## **Possible Improvements**
 
-<!-- --- -->
+- List to show users favourite movies.
+- Using other apis like TV shows and all.
+- Slider for Genre with next and previous buttons.
+- Somehow reducing the distance between filters and the output list.
+- Making navbar scroll sensitive.
+
+---

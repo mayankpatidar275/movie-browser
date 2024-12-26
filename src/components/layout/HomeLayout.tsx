@@ -6,14 +6,16 @@ import Sun from "../Icons/Sun";
 import MobileMenuBtn from "./MobileMenuBtn";
 
 function HomeLayout({ children }: { children: React.ReactNode }) {
-  const [darkMode, setDarkMode] = useState(
-    localStorage.getItem("mode") === "dark"
-  );
+  const [darkMode, setDarkMode] = useState(() => {
+    const storedMode = localStorage.getItem("mode");
+    return storedMode ? storedMode === "dark" : true; // Default to dark mode
+  });
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const mode = localStorage.getItem("mode");
-    if (mode === "dark") {
+
+    if (mode === "dark" || (!mode && darkMode)) {
       setDarkMode(true);
       document.body.classList.add("dark");
     } else {
@@ -27,7 +29,7 @@ function HomeLayout({ children }: { children: React.ReactNode }) {
       localStorage.setItem("mode", "dark");
       document.body.classList.add("dark");
     } else {
-      localStorage.removeItem("mode");
+      localStorage.setItem("mode", "light");
       document.body.classList.remove("dark");
     }
   }, [darkMode]);
