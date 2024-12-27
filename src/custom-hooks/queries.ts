@@ -1,7 +1,8 @@
-import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQueries, useQuery } from "@tanstack/react-query";
 import { QueryParams, SearchQueryParams } from "../types";
 import {
   fetchGenres,
+  fetchMovieById,
   fetchMovies,
   fetchSearchedMovies,
 } from "../services/api/movies";
@@ -27,6 +28,19 @@ export function useSearchedMovies(params: SearchQueryParams) {
     queryFn: () => fetchSearchedMovies(params),
     enabled: params.query.length > 0,
     staleTime: 5 * 60 * 1000,
+  });
+}
+
+export function useMoviesById(movieIds: string[]) {
+  return useQueries({
+    queries: movieIds.map((movieId) => {
+      return {
+        queryKey: ["movieId", movieId],
+        queryFn: () => fetchMovieById(movieId),
+        enabled: !!movieId,
+        staleTime: 5 * 60 * 1000,
+      };
+    }),
   });
 }
 

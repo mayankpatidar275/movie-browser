@@ -36,6 +36,23 @@ export const fetchMovies = async (
 };
 
 // Fetch movies
+export const fetchMovieById = async (id: string) => {
+  const options = {
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${READ_ACCESS_TOKEN}`,
+    },
+  };
+  try {
+    const response = await get(`${BASE_URL}/3/movie/${id}`, options);
+    return response;
+  } catch (error) {
+    console.error("Error fetching movie by id:", error);
+    throw error;
+  }
+};
+
+// FetchFavourite movie
 export const fetchSearchedMovies = async (params: SearchQueryParams) => {
   const url = getURL(`${BASE_URL}/3/search/movie`, params);
   const options = {

@@ -112,6 +112,8 @@ Ensure you have the following installed:
 - webp format for images.
 - Debouncing in movie searching.
 - Caching using Tanstack React Query.
+- Avoid filtering the movies to get favourite movies because the favourite movies can be scattered in many pages and in worst case we might need to fetch all the pages, on the other hand while fetching favourite movies the worst case would be all the available movies(but this is very likely not to happen). Using [Dynamic Parallel Queries with useQueries](https://tanstack.com/query/v4/docs/framework/react/guides/parallel-queries#dynamic-parallel-queries-with-usequeries) in Tanstack
+<!-- - Avoid fetching the favourite movies from tmdb, instead filter non-favourite from the Tanstack cached movies using localstorage favourite data. -->
 
 ### **3. State Management**
 

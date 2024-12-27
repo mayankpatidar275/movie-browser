@@ -3,7 +3,7 @@ import { useMovies } from "../../custom-hooks/queries";
 import { useFilter } from "../../custom-hooks/useFilter";
 import { MovieItem } from "../../types";
 import Loader from "../shared/ui/Loader";
-import MovieCard from "./MovieCard";
+import MovieCard from "../shared/ui/MovieCard";
 
 function MoviesList() {
   const { state } = useFilter();

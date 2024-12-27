@@ -1,4 +1,4 @@
-import Carousel from "../../components/moviesPage/Carousel";
+import Carousel from "../../components/shared/Carousel";
 import FiltersConfig from "../../components/moviesPage/FilterControls";
 import MoviesList from "../../components/moviesPage/MoviesList";
 import Search from "../../components/moviesPage/Search";
