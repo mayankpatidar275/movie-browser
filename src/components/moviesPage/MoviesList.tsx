@@ -1,9 +1,10 @@
-import { useCallback, useMemo, useRef } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { useMovies } from "../../custom-hooks/queries";
 import { useFilter } from "../../custom-hooks/useFilter";
 import { MovieItem } from "../../types";
 import Loader from "../shared/ui/Loader";
 import MovieCard from "../shared/ui/MovieCard";
+import MovieModal from "../shared/ui/MovieModal";
 
 function MoviesList() {
   const { state } = useFilter();
@@ -17,6 +18,8 @@ function MoviesList() {
   } = useMovies(state);
 
   const observerRef = useRef<IntersectionObserver | null>(null);
+
+  const [showModal, setShowModal] = useState(false);
 
   const lastMovieRef = useCallback(
     (node: HTMLDivElement | null) => {
@@ -95,43 +98,49 @@ function MoviesList() {
   }
 
   return (
-    <section className="movies-list">
-      {heading}
-      <main className="flex justify-center items-center mt-6 p-6">
-        <div
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-          role="grid"
-        >
-          {data?.pages.map((page, pageIndex) =>
-            page.results.map((movie: MovieItem, index: number) => {
-              const isLastMovie =
-                pageIndex === data.pages.length - 1 &&
-                index === page.results.length - 1;
+    <>
+      <section className="movies-list">
+        {heading}
+        <main className="flex justify-center items-center mt-6 p-6">
+          <div
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+            role="grid"
+          >
+            {data?.pages.map((page, pageIndex) =>
+              page.results.map((movie: MovieItem, index: number) => {
+                const isLastMovie =
+                  pageIndex === data.pages.length - 1 &&
+                  index === page.results.length - 1;
 
-              return (
-                <div
-                  key={`${pageIndex}-${index}`}
-                  ref={isLastMovie ? lastMovieRef : null}
-                  role="gridcell"
-                >
-                  <MovieCard movie={movie} />
-                </div>
-              );
-            })
-          )}
-        </div>
-      </main>
-      {isFetchingNextPage && (
-        <div
-          className="flex justify-center mt-4"
-          aria-live="polite"
-          aria-busy="true"
-        >
-          <Loader size={30} />
-          <span className="sr-only">Loading more movies...</span>
-        </div>
+                return (
+                  <div
+                    key={`${pageIndex}-${index}`}
+                    ref={isLastMovie ? lastMovieRef : null}
+                    role="gridcell"
+                    onClick={() => setShowModal(true)}
+                  >
+                    <MovieCard movie={movie} />
+                  </div>
+                );
+              })
+            )}
+          </div>
+        </main>
+        {isFetchingNextPage && (
+          <div
+            className="flex justify-center mt-4"
+            aria-live="polite"
+            aria-busy="true"
+          >
+            <Loader size={30} />
+            <span className="sr-only">Loading more movies...</span>
+          </div>
+        )}
+      </section>
+      {showModal && (
+        <MovieModal closeCb={() => setShowModal((prev) => !prev)} />
       )}
-    </section>
+    </>
   );
 }
 
