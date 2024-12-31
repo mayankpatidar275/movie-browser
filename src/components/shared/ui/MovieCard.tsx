@@ -17,7 +17,7 @@ function MovieCard({ movie }: MovieCardProps) {
     return favorites.includes(id);
   });
 
-  const handleFavoriteToggle = (e) => {
+  const handleFavoriteToggle = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
     const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
     if (isFavorite) {
