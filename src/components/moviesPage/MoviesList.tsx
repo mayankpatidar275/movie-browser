@@ -19,7 +19,7 @@ function MoviesList() {
 
   const observerRef = useRef<IntersectionObserver | null>(null);
 
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState<MovieItem | null>(null);
 
   const lastMovieRef = useCallback(
     (node: HTMLDivElement | null) => {
@@ -117,7 +117,7 @@ function MoviesList() {
                     key={`${pageIndex}-${index}`}
                     ref={isLastMovie ? lastMovieRef : null}
                     role="gridcell"
-                    onClick={() => setShowModal(true)}
+                    onClick={() => setShowModal(movie)}
                   >
                     <MovieCard movie={movie} />
                   </div>
@@ -138,7 +138,7 @@ function MoviesList() {
         )}
       </section>
       {showModal && (
-        <MovieModal closeCb={() => setShowModal((prev) => !prev)} />
+        <MovieModal closeCb={() => setShowModal(null)} movie={showModal} />
       )}
     </>
   );

@@ -17,7 +17,8 @@ function MovieCard({ movie }: MovieCardProps) {
     return favorites.includes(id);
   });
 
-  const handleFavoriteToggle = () => {
+  const handleFavoriteToggle = (e) => {
+    e.stopPropagation();
     const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
     if (isFavorite) {
       const updatedFavorites = favorites.filter(
