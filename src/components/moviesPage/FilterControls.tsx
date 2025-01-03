@@ -1,9 +1,8 @@
 import { RESET_FILTERS, SET_FILTER } from "../../constants/actions";
 import { useGenres } from "../../custom-hooks/queries";
 import { useFilter } from "../../custom-hooks/useFilter";
-import { GenreItem } from "../../types";
 import Loader from "../shared/ui/Loader";
-import GenreBtn from "./GenreBtn";
+import GenreCarousel from "./GenreCarousel";
 import RangeSlider from "./RangeSlider";
 import ResetBtn from "./ResetBtn";
 import { useCallback } from "react";
@@ -96,30 +95,11 @@ function FilterControls() {
       <h1 id="filter-controls-heading" className="sr-only">
         Filter Controls
       </h1>
-      <div className="w-full flex justify-center flex-wrap gap-2 p-4">
-        {data.genres.map((item: GenreItem) => (
-          <div
-            onClick={(e) => {
-              e.preventDefault();
-              toggleGenreSelection(item.id);
-            }}
-            key={item.id}
-            role="button"
-            aria-pressed={state.with_genres.includes(item.id.toString())}
-            tabIndex={0}
-            onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") {
-                toggleGenreSelection(item.id);
-              }
-            }}
-          >
-            <GenreBtn
-              item={item}
-              isSelected={state.with_genres.includes(item.id.toString())}
-            />
-          </div>
-        ))}
-      </div>
+      <GenreCarousel
+        data={data.genres}
+        toggleGenreSelection={toggleGenreSelection}
+        state={state}
+      />
       <div className="flex justify-around flex-wrap gap-4 p-2">
         <div className="year w-full flex-1 text-secondary dark:text-primary py-4 flex items-center justify-center flex-col">
           <RangeSlider

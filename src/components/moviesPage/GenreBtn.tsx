@@ -6,7 +6,7 @@ interface GenreBtnProps {
 
 function GenreBtn({ item, isSelected, className = "" }: GenreBtnProps) {
   const baseClasses =
-    "px-4 py-2 border rounded-3xl cursor-pointer transition-all duration-200";
+    "px-4 py-2 border rounded-3xl cursor-pointer transition-all duration-200 whitespace-nowrap";
   const dynamicClasses = `border-secondary dark:border-primary ${
     isSelected
       ? "bg-secondary dark:bg-primary text-primary dark:text-secondary"

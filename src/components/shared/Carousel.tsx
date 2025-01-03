@@ -12,7 +12,7 @@ function Carousel() {
       <h2 id="carousel-heading" className="sr-only">
         Main Hero Image
       </h2>
-      <figure>
+      <figure className="h-full">
         <picture>
           {/* WebP source for modern browsers */}
           <source srcSet={MovieImg} type="image/webp" />
