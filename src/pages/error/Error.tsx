@@ -3,7 +3,7 @@ function Error() {
     <div
       role="alert"
       aria-live="assertive"
-      className="text-center text-red-600 dark:text-red-400 font-medium p-4"
+      className="text-center text-secondary dark:text-primary font-medium p-4"
     >
       Page not found! Please check your path.
     </div>
