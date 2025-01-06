@@ -1,11 +1,37 @@
-import Carousel from "../../components/shared/Carousel";
+import { ArrowUp } from "lucide-react";
+import { useEffect, useState } from "react";
 import FiltersConfig from "../../components/moviesPage/FilterControls";
 import MoviesList from "../../components/moviesPage/MoviesList";
 import Search from "../../components/moviesPage/Search";
+import Carousel from "../../components/shared/Carousel";
 import FilterProvider from "../../context/FilterContext/FilterProvider";
-import { ArrowUp } from "lucide-react";
 
 function Movies() {
+  const [showScrollButton, setShowScrollButton] = useState(false);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollButton(true);
+      } else {
+        setShowScrollButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <FilterProvider>
       <div>
@@ -13,9 +39,17 @@ function Movies() {
         <Search />
         <FiltersConfig />
         <MoviesList />
-        <div className="dark:bg-primary bg-secondary text-primary dark:text-secondary p-4 m-4 bottom-0 right-0 rounded-full fixed cursor-pointer">
-          <ArrowUp />
-        </div>
+
+        {/* Scroll-to-top Button */}
+        {showScrollButton && (
+          <div
+            onClick={scrollToTop}
+            aria-label="Scroll to top"
+            className="fixed bottom-4 right-4 p-4 rounded-full bg-secondary text-primary dark:bg-primary dark:text-secondary cursor-pointer shadow-lg transition-transform hover:scale-110"
+          >
+            <ArrowUp size={24} />
+          </div>
+        )}
       </div>
     </FilterProvider>
   );
