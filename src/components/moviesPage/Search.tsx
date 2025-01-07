@@ -1,10 +1,11 @@
 import { debounce } from "lodash";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSearchedMovies } from "../../custom-hooks/queries";
 import { MovieItem, SearchQueryParams } from "../../types";
 import Cross from "../Icons/Cross";
 import SearchIcon from "../Icons/Search";
 import LoaderInvert from "../shared/ui/LoaderInvert";
+import SearchMovieCard from "./SearchMovieCard";
 
 const Search: React.FC = () => {
   const [inputValue, setInputValue] = useState<string>(""); // Separate state for input
@@ -13,12 +14,9 @@ const Search: React.FC = () => {
   );
 
   // Debounce function to optimize API calls
-  const debouncedSearchTerm = useCallback(
-    debounce((query: string) => {
-      setSearchQueryParams({ query });
-    }, 300),
-    []
-  );
+  const debouncedSearchTerm = debounce((query: string) => {
+    setSearchQueryParams({ query });
+  }, 300);
 
   useEffect(() => {
     return () => debouncedSearchTerm.cancel(); // Cleanup debounce on unmount
@@ -88,7 +86,7 @@ const Search: React.FC = () => {
         {movies && (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
             {movies?.results?.map((movie: MovieItem) => (
-              <MovieCard key={movie.id} movie={movie} />
+              <SearchMovieCard key={movie.id} movie={movie} />
             ))}
           </div>
         )}
@@ -99,30 +97,5 @@ const Search: React.FC = () => {
     </div>
   );
 };
-
-// Memoized Movie Card for performance optimization
-const MovieCard: React.FC<{ movie: MovieItem }> = React.memo(({ movie }) => (
-  <div
-    className="flex items-start bg-white dark:bg-secondary shadow-md rounded-lg p-4 space-x-4"
-    role="listitem"
-  >
-    <img
-      src={`${import.meta.env.VITE_REACT_APP_BASE_IMG_URL}/t/p/w500${
-        movie.poster_path
-      }`}
-      alt={`${movie.title} poster`}
-      className="w-24 h-36 rounded-lg object-cover"
-      loading="lazy"
-    />
-    <div className="flex flex-col justify-between">
-      <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-        {movie.title}
-      </h3>
-      <p className="text-sm text-gray-600 dark:text-gray-400 mt-2 line-clamp-3">
-        {movie.overview}
-      </p>
-    </div>
-  </div>
-));
 
 export default Search;

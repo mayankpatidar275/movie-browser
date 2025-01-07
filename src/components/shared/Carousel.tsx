@@ -4,11 +4,13 @@ import MovieImgJPG from "../../assets/movies/movie-img.jpg";
 
 function Carousel() {
   return (
-    <div
+    <section
       className="w-full h-[50vh] overflow-hidden"
-      role="region"
-      aria-labelledby="carousel-heading"
+      role="region" // significant for author
+      aria-labelledby="carousel-heading" // to refer an element
     >
+      {/* sr-only : a utility class that allows you to hide an element visually on a
+      webpage while still making it accessible to screen readers */}
       <h2 id="carousel-heading" className="sr-only">
         Main Hero Image
       </h2>
@@ -28,7 +30,7 @@ function Carousel() {
           A scenic poster representing the theme of the website.
         </figcaption>
       </figure>
-    </div>
+    </section>
   );
 }
 

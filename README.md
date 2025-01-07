@@ -75,6 +75,7 @@ Ensure you have the following installed:
 - Reset Genre selection
 - Multiple Genre selection
 - Error page
+- Scroll to top
 
 ---
 
@@ -105,7 +106,8 @@ Ensure you have the following installed:
 
 - **Tool to check**: WAVE Web Accessibility Evaluation Tools and Accessible Rich Internet Applications (ARIA) extension for online accessibility checking.
 - SVG are better for SEO.
-- Use aria-label and proper html semantics
+- Use ARIA(should be avoided if html tags are properly used), alt attribute, proper keyboard navigation with tabIndex and proper html semantics.
+- WCAG Color contrast checker.
 
 ### **3. Optimization**
 
