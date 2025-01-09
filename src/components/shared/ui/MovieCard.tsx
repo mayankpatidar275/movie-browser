@@ -39,7 +39,7 @@ function MovieCard({ movie }: MovieCardProps) {
           import.meta.env.VITE_REACT_APP_BASE_IMG_URL
         }/t/p/w500${poster_path}`}
         alt={title}
-        className="w-full h-64 object-cover transition-transform duration-300 hover:scale-110"
+        className="w-full h-64 object-contain transition-transform duration-300 hover:scale-110"
       />
       <div className="p-4 w-full">
         <div className="flex items-center justify-between w-full">
