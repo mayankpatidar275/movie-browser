@@ -1,5 +1,5 @@
 import { debounce } from "lodash";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useSearchedMovies } from "../../custom-hooks/queries";
 import { MovieItem, SearchQueryParams } from "../../types";
 import Cross from "../Icons/Cross";
@@ -14,9 +14,12 @@ const Search: React.FC = () => {
   );
 
   // Debounce function to optimize API calls
-  const debouncedSearchTerm = debounce((query: string) => {
-    setSearchQueryParams({ query });
-  }, 300);
+  const debouncedSearchTerm = useCallback(
+    debounce((query: string) => {
+      setSearchQueryParams({ query });
+    }, 300),
+    []
+  );
 
   useEffect(() => {
     return () => debouncedSearchTerm.cancel(); // Cleanup debounce on unmount
