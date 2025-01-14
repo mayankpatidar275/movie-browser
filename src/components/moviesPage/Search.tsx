@@ -14,6 +14,7 @@ const Search: React.FC = () => {
   );
 
   // Debounce function to optimize API calls
+  // debounced function remains stable across renders (so useCallback is important here otherwise it will create issue)
   const debouncedSearchTerm = useCallback(
     debounce((query: string) => {
       setSearchQueryParams({ query });
